@@ -1,0 +1,61 @@
+[
+  {
+    "description": "  As an internet user\n  In order to find out more about George McCarron\n  I want to be able to search for information about George McCarron",
+    "elements": [
+      {
+        "id": "searching-for-george-mccarron;google-serch-for-george-mccarron",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Google serch for George McCarron",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I search Google for \"George McCarron\"",
+            "result": {
+              "status": "passed",
+              "duration": 4162355425
+            },
+            "line": 7,
+            "match": {
+              "location": "/Users/george/Desktop/code/trello-clone/tests/functional/step-definitions/google-search-steps.js:2"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see some results",
+            "result": {
+              "status": "passed",
+              "duration": 24037008
+            },
+            "line": 8,
+            "match": {
+              "location": "/Users/george/Desktop/code/trello-clone/tests/functional/step-definitions/google-search-steps.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 137068186
+            },
+            "hidden": true,
+            "match": {
+              "location": "/Users/george/Desktop/code/trello-clone/node_modules/selenium-cucumber-js/runtime/world.js:250"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "searching-for-george-mccarron",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Searching for George McCarron",
+    "tags": [],
+    "uri": "/Users/george/Desktop/code/trello-clone/tests/functional/features/google-search.feature"
+  }
+]

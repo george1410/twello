@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="searching-for-george-mccarron;google-serch-for-george-mccarron" tests="2" failures="0" skipped="0">
+        <properties>
+            <property name="URI" value="/Users/george/Desktop/code/trello-clone/tests/functional/features/google-search.feature">
+            </property>
+        </properties>
+        <testcase name="When I search Google for &quot;George McCarron&quot;" classname="searching-for-george-mccarron;google-serch-for-george-mccarron" time="4.162355425">
+        </testcase>
+        <testcase name="Then I should see some results" classname="searching-for-george-mccarron;google-serch-for-george-mccarron" time="0.024037008">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,0 +1,9 @@
+{
+  "steps": "./tests/functional/step-definitions",
+  "pageObjects": "./tests/functional/page-objects",
+  "sharedObjects": "./tests/functional/shared-objects",
+  "featureFiles": "./tests/functional/features",
+  "reports": "./tests/functional/reports",
+  "browser": "chrome",
+  "timeout": 10000
+}

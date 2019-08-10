@@ -10,7 +10,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test:unit": "react-scripts test",
+    "test:functional": "node ./node_modules/selenium-cucumber-js/index.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -27,5 +28,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "selenium-cucumber-js": "github:george1410/selenium-cucumber-js"
   }
 }
