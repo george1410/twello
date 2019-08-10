@@ -1,0 +1,26 @@
+.root {
+  min-width: 300px;
+  background-color: #b9e5fa;
+  padding: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 10px;
+  height: fit-content;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.cardContainer {
+  margin: 10px 0;
+}
+
+.addCard {
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin: 0;
+  color: #6c6ea0;
+}
