@@ -1,6 +1,6 @@
 .root {
   min-width: 300px;
-  background-color: #b9e5fa;
+  background-color: #192734;
   padding: 20px;
   border-radius: 5px;
   box-sizing: border-box;
@@ -9,7 +9,7 @@
 }
 
 .title {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.1rem;
   margin: 0;
 }

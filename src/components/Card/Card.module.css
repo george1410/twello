@@ -1,7 +1,7 @@
 .root {
-  background-color: #ffffff;
   margin: 10px 0;
   padding: 10px;
-  border-radius: 3px;
+  border-radius: 10px;
+  border: #38444d solid 1px;
   font-weight: 300;
 }
