@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './Board.module.css';
 import Column from '../Column/Column';
-import Card from '../Card/Card';
 import AddColumn from '../AddColumn/AddColumn';
 
 class Board extends Component {
@@ -10,12 +9,13 @@ class Board extends Component {
     return (
       <div className={`${styles.scroll} ${this.props.className}`}>
         <div className={styles.root}>
-          {this.props.columns.map(column => (
-            <Column title={column.title} key={column.title}>
-              {column.cards.map(card => (
-                <Card key={card.text}>{card.text}</Card>
-              ))}
-            </Column>
+          {this.props.columns.map((column, index) => (
+            <Column
+              title={column.title}
+              key={column.title}
+              cardIds={column.cards}
+              columnIndex={index}
+            />
           ))}
           <AddColumn />
         </div>
