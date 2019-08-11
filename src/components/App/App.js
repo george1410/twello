@@ -1,31 +1,12 @@
 import React from 'react';
-import './App.css';
-import Column from '../Column/Column';
-import Card from '../Card/Card';
-import AddColumn from '../AddColumn/AddColumn';
+import styles from './App.module.css';
+import Board from '../Board/Board';
 
 function App() {
   return (
-    <div className='App'>
-      <Column title='First'>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </Column>
-      <Column title='Second'>
-        <Card />
-        <Card />
-        <Card />
-      </Column>
-      <Column title='Third'>
-        <Card />
-        <Card />
-        <Card />
-      </Column>
-      <AddColumn />
+    <div className={styles.root}>
+      <h1>Twello</h1>
+      <Board className={styles.board} />
     </div>
   );
 }
