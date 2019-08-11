@@ -19,7 +19,7 @@ class AddColumn extends Component {
 
   handleSubmit = event => {
     if (this.state.title) {
-      this.props.addColumn({ title: this.state.title, cards: [] });
+      this.props.addColumn({ title: this.state.title });
       this.setState(prevState => ({
         open: !prevState.open,
         title: ''
@@ -36,7 +36,6 @@ class AddColumn extends Component {
 
   componentDidUpdate() {
     if (this.state.open) {
-      console.log('here');
       this.titleInput.current.focus();
     }
   }
