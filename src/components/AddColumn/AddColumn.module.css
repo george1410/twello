@@ -1,0 +1,9 @@
+.root {
+  min-width: 300px;
+  background-color: #6c6ea0;
+  padding: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 10px;
+  height: fit-content;
+}

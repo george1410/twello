@@ -2,11 +2,12 @@ import React from 'react';
 import './App.css';
 import Column from '../Column/Column';
 import Card from '../Card/Card';
+import AddColumn from '../AddColumn/AddColumn';
 
 function App() {
   return (
     <div className='App'>
-      <Column title='Ready'>
+      <Column title='First'>
         <Card />
         <Card />
         <Card />
@@ -14,26 +15,17 @@ function App() {
         <Card />
         <Card />
       </Column>
-      <Column title='In Progress'>
+      <Column title='Second'>
         <Card />
         <Card />
         <Card />
       </Column>
-      <Column title='Impeded'>
+      <Column title='Third'>
         <Card />
         <Card />
         <Card />
       </Column>
-      <Column title='Ready for Acceptance'>
-        <Card />
-        <Card />
-        <Card />
-      </Column>
-      <Column title='Done'>
-        <Card />
-        <Card />
-        <Card />
-      </Column>
+      <AddColumn />
     </div>
   );
 }
