@@ -4,4 +4,6 @@
   border-radius: 10px;
   border: #38444d solid 1px;
   font-weight: 300;
+  max-width: 100%;
+  line-height: 1.5rem;
 }

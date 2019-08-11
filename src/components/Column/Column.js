@@ -1,43 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCard } from '../../redux/actions/cardActions';
 import { addCardToColumn } from '../../redux/actions/columnActions';
 import Card from '../Card/Card';
 import styles from './Column.module.css';
+import AddCard from '../AddCard/AddCard';
 
-const Column = ({
-  title,
-  addCard,
-  addCardToColumn,
-  nextCardId,
-  cardIds,
-  cards,
-  columnIndex
-}) => {
-  const handleNewCard = () => {
-    addCard({ text: 'this card is in redux!' });
-    addCardToColumn({ columnIndex: columnIndex, cardId: nextCardId });
+class Column extends Component {
+  handleNewCard = text => {
+    this.props.addCard({ text });
+    this.props.addCardToColumn({
+      columnIndex: this.props.columnIndex,
+      cardId: this.props.nextCardId
+    });
   };
 
-  return (
-    <div className={styles.root}>
-      <h2 className={styles.title}>{title}</h2>
-      <div className={styles.cardContainer}>
-        {cardIds.map(id =>
-          cards.map(card => {
-            if (card.id === id) {
-              return <Card key={card.text}>{card.text}</Card>;
-            }
-            return null;
-          })
-        )}
+  render() {
+    return (
+      <div className={styles.root}>
+        <h2 className={styles.title}>{this.props.title}</h2>
+        <div className={styles.cardContainer}>
+          {this.props.cardIds.map(id =>
+            this.props.cards.map(card => {
+              if (card.id === id) {
+                return <Card key={card.text}>{card.text}</Card>;
+              }
+              return null;
+            })
+          )}
+        </div>
+        <AddCard onSubmit={this.handleNewCard} />
       </div>
-      <h2 className={styles.addCard} onClick={handleNewCard}>
-        + Add New Card
-      </h2>
-    </div>
-  );
-};
+    );
+  }
+}
 
 const mapStateToProps = state => {
   return {

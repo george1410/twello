@@ -1,5 +1,6 @@
 .root {
-  min-width: 300px;
+  width: 300px;
+  max-width: 300px;
   background-color: #192734;
   padding: 20px;
   border-radius: 5px;
@@ -18,12 +19,4 @@
 
 .cardContainer {
   margin: 10px 0;
-}
-
-.addCard {
-  font-weight: 400;
-  font-size: 1.1rem;
-  margin: 0;
-  color: #6c6ea0;
-  cursor: pointer;
 }
