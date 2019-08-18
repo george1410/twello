@@ -6,6 +6,10 @@ import './index.css';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './redux/reducers/rootReducer';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faPencilAlt);
 
 const store = createStore(
   rootReducer,
