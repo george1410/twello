@@ -49,7 +49,7 @@ export default class AddCard extends Component {
   };
 
   handleClickGlob = e => {
-    if (this.wrapper.current.contains(e.target)) {
+    if (!this.wrapper.current || this.wrapper.current.contains(e.target)) {
       return;
     }
     this.handleClickOutside();

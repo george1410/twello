@@ -6,14 +6,18 @@ import { updateCard } from '../../redux/actions/cardActions';
 
 class Card extends Component {
   editBox = React.createRef();
+  editWrapper = React.createRef();
+
   state = {
+    justOpened: false,
     editing: false,
     editText: this.props.children
   };
 
   onEditClick = () => {
     this.setState({
-      editing: true
+      editing: true,
+      justOpened: true
     });
   };
 
@@ -44,15 +48,45 @@ class Card extends Component {
 
   componentDidUpdate() {
     if (this.state.editing) {
-      this.editBox.current.style.height = `${
-        this.editBox.current.scrollHeight
-      }px`;
+      this.editBox.current.focus();
+      this.editBox.current.style.height = `${this.editBox.current.scrollHeight +
+        2}px`;
     }
+    if (this.state.justOpened) {
+      this.editBox.current.select();
+      this.setState({
+        justOpened: false
+      });
+    }
+  }
+
+  handleClickGlob = e => {
+    if (
+      !this.editWrapper.current ||
+      this.editWrapper.current.contains(e.target)
+    ) {
+      return;
+    }
+    this.handleClickOutside();
+  };
+
+  handleClickOutside = () => {
+    this.setState({
+      editing: false
+    });
+  };
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickGlob, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickGlob, false);
   }
 
   render() {
     const editMode = (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} ref={this.editWrapper}>
         <textarea
           className={styles.textInput}
           value={this.state.editText}
