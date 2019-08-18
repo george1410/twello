@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Card.module.css';
-import { thisExpression } from '@babel/types';
+import { updateCard } from '../../redux/actions/cardActions';
 
 class Card extends Component {
   editBox = React.createRef();
@@ -30,6 +31,7 @@ class Card extends Component {
 
   handleSubmit = event => {
     if (this.state.editText) {
+      this.props.updateCard({ id: this.props.id, text: this.state.editText });
       this.setState({
         editing: false
       });
@@ -74,4 +76,11 @@ class Card extends Component {
   }
 }
 
-export default Card;
+const mapDispatchToProps = {
+  updateCard
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Card);

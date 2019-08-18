@@ -44,7 +44,11 @@ class Column extends Component {
           {this.props.cardIds.map(id =>
             this.props.cards.map(card => {
               if (card.id === id) {
-                return <Card key={card.text}>{card.text}</Card>;
+                return (
+                  <Card key={card.id} id={card.id}>
+                    {card.text}
+                  </Card>
+                );
               }
               return null;
             })
