@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Card.module.css';
+import { thisExpression } from '@babel/types';
 
 class Card extends Component {
   editBox = React.createRef();

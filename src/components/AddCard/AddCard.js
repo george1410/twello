@@ -28,6 +28,7 @@ export default class AddCard extends Component {
       this.setState({
         text: ''
       });
+      this.textInput.current.style.height = '0px';
     }
     if (event) {
       event.preventDefault();
