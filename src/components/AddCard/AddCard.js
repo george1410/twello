@@ -3,6 +3,7 @@ import styles from './AddCard.module.css';
 
 export default class AddCard extends Component {
   textInput = React.createRef();
+  wrapper = React.createRef();
 
   state = {
     open: false,
@@ -39,16 +40,37 @@ export default class AddCard extends Component {
     }
   };
 
+  handleClickOutside = () => {
+    this.setState({
+      open: false
+    });
+  };
+
+  handleClickGlob = e => {
+    if (this.wrapper.current.contains(e.target)) {
+      return;
+    }
+    this.handleClickOutside();
+  };
+
   componentDidUpdate() {
     if (this.state.open) {
       this.textInput.current.focus();
     }
   }
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickGlob, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickGlob, false);
+  }
+
   render() {
     if (this.state.open) {
       return (
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} ref={this.wrapper}>
           <textarea
             className={styles.textInput}
             value={this.state.text}
@@ -63,7 +85,7 @@ export default class AddCard extends Component {
     }
 
     return (
-      <h2 className={styles.root} onClick={this.handleClick}>
+      <h2 className={styles.root} onClick={this.handleClick} ref={this.wrapper}>
         + Add New Card
       </h2>
     );
