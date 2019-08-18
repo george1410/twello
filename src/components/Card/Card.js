@@ -21,6 +21,7 @@ class Card extends Component {
     this.setState({
       editText: event.target.value
     });
+    this.editBox.current.style.height = '0px';
   };
 
   handleKeyDown = event => {

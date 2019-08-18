@@ -20,6 +20,7 @@ export default class AddCard extends Component {
     this.setState({
       text: event.target.value
     });
+    this.textInput.current.style.height = '0px';
   };
 
   handleSubmit = event => {
