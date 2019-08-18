@@ -56,6 +56,8 @@ export default class AddCard extends Component {
   componentDidUpdate() {
     if (this.state.open) {
       this.textInput.current.focus();
+      this.textInput.current.style.height = `${this.textInput.current
+        .scrollHeight + 2}px`;
     }
   }
 
