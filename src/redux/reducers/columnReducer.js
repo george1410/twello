@@ -1,4 +1,8 @@
-import { ADD_COLUMN, ADD_CARD_TO_COLUMN } from '../actions/actionTypes';
+import {
+  ADD_COLUMN,
+  ADD_CARD_TO_COLUMN,
+  RENAME_COLUMN
+} from '../actions/actionTypes';
 
 const initialState = {
   columns: []
@@ -20,6 +24,20 @@ export default function columnReducer(state = initialState, action) {
             return {
               ...column,
               cards: [...column.cards, action.payload.cardId]
+            };
+          }
+          return column;
+        })
+      };
+
+    case RENAME_COLUMN:
+      return {
+        ...state,
+        columns: state.columns.map((column, index) => {
+          if (index === action.payload.columnIndex) {
+            return {
+              ...column,
+              title: action.payload.title
             };
           }
           return column;

@@ -12,12 +12,6 @@
   max-height: 100%;
 }
 
-.title {
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin: 0;
-}
-
 .cardContainer {
   margin: 10px 0;
   overflow-y: scroll;

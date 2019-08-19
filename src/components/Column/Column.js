@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCard } from '../../redux/actions/cardActions';
-import { addCardToColumn } from '../../redux/actions/columnActions';
+import {
+  addCardToColumn,
+  renameColumn
+} from '../../redux/actions/columnActions';
 import Card from '../Card/Card';
 import styles from './Column.module.css';
 import AddCard from '../AddCard/AddCard';
+import ColumnTitle from '../ColumnTitle/ColumnTitle';
 
 class Column extends Component {
   cardContainer = React.createRef();
@@ -24,6 +28,13 @@ class Column extends Component {
     });
   };
 
+  handleTitleSubmit = title => {
+    this.props.renameColumn({
+      columnIndex: this.props.columnIndex,
+      title
+    });
+  };
+
   componentDidUpdate() {
     if (this.state.added) {
       this.cardContainer.current.scrollTo(
@@ -39,7 +50,10 @@ class Column extends Component {
   render() {
     return (
       <div className={styles.root}>
-        <h2 className={styles.title}>{this.props.title}</h2>
+        <ColumnTitle
+          title={this.props.title}
+          onSubmit={this.handleTitleSubmit}
+        />
         <div className={styles.cardContainer} ref={this.cardContainer}>
           {this.props.cardIds.map(id =>
             this.props.cards.map(card => {
@@ -69,7 +83,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   addCard,
-  addCardToColumn
+  addCardToColumn,
+  renameColumn
 };
 
 export default connect(
