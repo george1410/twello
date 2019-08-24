@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCard } from '../../redux/actions/cardActions';
 import {
+  addCard,
   addCardToColumn,
   renameColumn
-} from '../../redux/actions/columnActions';
+} from '../../redux/actions/boardActions';
 import Card from '../Card/Card';
 import styles from './Column.module.css';
 import AddCard from '../AddCard/AddCard';
@@ -76,8 +76,8 @@ class Column extends Component {
 
 const mapStateToProps = state => {
   return {
-    nextCardId: state.cards.nextId,
-    cards: state.cards.cards
+    nextCardId: state.board.cards.nextId,
+    cards: state.board.cards.cards
   };
 };
 

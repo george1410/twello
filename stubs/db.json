@@ -1,0 +1,43 @@
+{
+  "boards": [
+    {
+      "id": 1,
+      "columns": [
+        {
+          "title": "George",
+          "cards": [1, 2, 4, 6]
+        },
+        {
+          "title": "Henry",
+          "cards": [3, 5]
+        }
+      ],
+      "cards": [
+        {
+          "id": 1,
+          "text": "This is a test card"
+        },
+        {
+          "id": 2,
+          "text": "Here we have a card that is pretty long so it should go across multiple lines"
+        },
+        {
+          "id": 3,
+          "text": "This is another cool test card"
+        },
+        {
+          "id": 4,
+          "text": "What kind of stuff can you put in cards"
+        },
+        {
+          "id": 5,
+          "text": "This should just be the tile really..."
+        },
+        {
+          "id": 6,
+          "text": "The description can be longer and goes in a different place"
+        }
+      ]
+    }
+  ]
+}

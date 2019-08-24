@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addColumn } from '../../redux/actions/columnActions';
+import { addColumn } from '../../redux/actions/boardActions';
 import styles from './AddColumn.module.css';
 
 class AddColumn extends Component {

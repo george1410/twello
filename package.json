@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test:unit": "react-scripts test",
     "test:functional": "node ./node_modules/selenium-cucumber-js/index.js",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "stub": "npx json-server --watch ./stubs/db.json --port 3001"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "json-server": "^0.15.0",
     "selenium-cucumber-js": "github:george1410/selenium-cucumber-js"
   }
 }

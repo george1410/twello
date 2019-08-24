@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Card.module.css';
-import { updateCard } from '../../redux/actions/cardActions';
+import { updateCard } from '../../redux/actions/boardActions';
 
 class Card extends Component {
   editBox = React.createRef();

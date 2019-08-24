@@ -3,8 +3,18 @@ import { connect } from 'react-redux';
 import styles from './Board.module.css';
 import Column from '../Column/Column';
 import AddColumn from '../AddColumn/AddColumn';
+import { loadBoard } from '../../redux/actions/boardActions';
 
 class Board extends Component {
+  componentDidMount() {
+    fetch('http://localhost:3001/boards/1')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.props.loadBoard(data);
+      });
+  }
+
   render() {
     return (
       <div className={`${styles.scroll} ${this.props.className}`}>
@@ -26,8 +36,15 @@ class Board extends Component {
 
 function mapStateToProps(state) {
   return {
-    columns: state.columns.columns
+    columns: state.board.columns
   };
 }
 
-export default connect(mapStateToProps)(Board);
+const mapDispatchToProps = {
+  loadBoard
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Board);

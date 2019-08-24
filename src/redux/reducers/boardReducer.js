@@ -1,15 +1,52 @@
 import {
   ADD_COLUMN,
   ADD_CARD_TO_COLUMN,
-  RENAME_COLUMN
+  RENAME_COLUMN,
+  ADD_CARD,
+  UPDATE_CARD,
+  LOAD_BOARD
 } from '../actions/actionTypes';
 
 const initialState = {
+  cards: {
+    nextId: 10,
+    cards: []
+  },
   columns: []
 };
 
-export default function columnReducer(state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
+    case ADD_CARD:
+      return {
+        ...state,
+        cards: {
+          ...state.cards,
+          nextId: state.cards.nextId + 1,
+          cards: [
+            ...state.cards.cards,
+            { text: action.payload.text, id: state.cards.nextId }
+          ]
+        }
+      };
+
+    case UPDATE_CARD:
+      return {
+        ...state,
+        cards: {
+          ...state.cards,
+          cards: state.cards.map(card => {
+            if (card.id === action.payload.id) {
+              return {
+                ...card,
+                ...action.payload
+              };
+            }
+            return card;
+          })
+        }
+      };
+
     case ADD_COLUMN:
       return {
         ...state,
@@ -42,6 +79,16 @@ export default function columnReducer(state = initialState, action) {
           }
           return column;
         })
+      };
+
+    case LOAD_BOARD:
+      return {
+        ...state,
+        columns: action.payload.columns,
+        cards: {
+          ...state.cards,
+          cards: action.payload.cards
+        }
       };
 
     default:
