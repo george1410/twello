@@ -1,14 +1,8 @@
 import React from 'react';
-import styles from './App.module.css';
-import Board from '../Board/Board';
+import AppRouter from '../AppRouter/AppRouter';
 
-function App() {
-  return (
-    <div className={styles.root}>
-      <h1>Twello</h1>
-      <Board className={styles.board} />
-    </div>
-  );
-}
+const App = () => {
+  return <AppRouter />;
+};
 
 export default App;

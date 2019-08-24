@@ -8,6 +8,7 @@
   font-weight: 300;
   max-width: 100%;
   line-height: 1.5rem;
+  cursor: pointer;
 }
 
 .root:hover {

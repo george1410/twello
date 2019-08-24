@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Card.module.css';
 import { updateCard } from '../../redux/actions/cardActions';
@@ -11,7 +12,8 @@ class Card extends Component {
   state = {
     justOpened: false,
     editing: false,
-    editText: this.props.children
+    editText: this.props.children,
+    redirect: false
   };
 
   onEditClick = () => {
@@ -60,10 +62,10 @@ class Card extends Component {
     }
   }
 
-  handleClickGlob = e => {
+  handleClickGlob = event => {
     if (
       !this.editWrapper.current ||
-      this.editWrapper.current.contains(e.target)
+      this.editWrapper.current.contains(event.target)
     ) {
       return;
     }
@@ -76,6 +78,14 @@ class Card extends Component {
     });
   };
 
+  handleClickInside = e => {
+    if (e.target === e.currentTarget) {
+      this.setState({
+        redirect: true
+      });
+    }
+  };
+
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickGlob, false);
   }
@@ -85,6 +95,9 @@ class Card extends Component {
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={`/card/${this.props.id}`} />;
+    }
     const editMode = (
       <form onSubmit={this.handleSubmit} ref={this.editWrapper}>
         <textarea
@@ -101,7 +114,7 @@ class Card extends Component {
     return this.state.editing ? (
       editMode
     ) : (
-      <div className={styles.root}>
+      <div className={styles.root} onClick={this.handleClickInside}>
         <div className={styles.edit} onClick={this.onEditClick}>
           <FontAwesomeIcon icon='pencil-alt' />
         </div>
