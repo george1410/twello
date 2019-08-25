@@ -19,7 +19,7 @@ class AddColumn extends Component {
 
   handleSubmit = event => {
     if (this.state.title) {
-      this.props.addColumn(this.props.boardId, this.state.title);
+      this.props.addColumn(this.state.title);
       this.setState(prevState => ({
         open: !prevState.open,
         title: ''

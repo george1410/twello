@@ -1,6 +1,5 @@
 import {
   ADD_CARD_TO_COLUMN,
-  RENAME_COLUMN,
   ADD_CARD,
   UPDATE_CARD,
   LOAD_BOARD_BEGIN,
@@ -8,7 +7,10 @@ import {
   LOAD_BOARD_FAILURE,
   ADD_COLUMN_BEGIN,
   ADD_COLUMN_SUCCESS,
-  ADD_COLUMN_FAILURE
+  ADD_COLUMN_FAILURE,
+  UPDATE_COLUMN_BEGIN,
+  UPDATE_COLUMN_SUCCESS,
+  UPDATE_COLUMN_FAILURE
 } from './actionTypes';
 import boardApi from '../../api/boardApi';
 
@@ -18,7 +20,6 @@ export const addCardToColumn = payload => ({
   type: ADD_CARD_TO_COLUMN,
   payload
 });
-export const renameColumn = payload => ({ type: RENAME_COLUMN, payload });
 
 const loadBoardBegin = () => ({ type: LOAD_BOARD_BEGIN });
 const loadBoardSuccess = payload => ({
@@ -44,12 +45,34 @@ const addColumnBegin = () => ({ type: ADD_COLUMN_BEGIN });
 const addColumnSuccess = payload => ({ type: ADD_COLUMN_SUCCESS, payload });
 const addColumnFailure = payload => ({ type: ADD_COLUMN_FAILURE, payload });
 
-export const addColumn = (boardId, columnName) => {
-  return dispatch => {
+export const addColumn = columnName => {
+  return (dispatch, getState) => {
     dispatch(addColumnBegin());
+    const { board } = getState();
     return boardApi
-      .postColumn(boardId, columnName)
+      .postColumn(board.id, columnName)
       .then(data => dispatch(addColumnSuccess(data)))
       .catch(error => dispatch(addColumnFailure(error)));
+  };
+};
+
+const updateColumnBegin = () => ({ type: UPDATE_COLUMN_BEGIN });
+const updateColumnSuccess = payload => ({
+  type: UPDATE_COLUMN_SUCCESS,
+  payload
+});
+const updateColumnFailure = payload => ({
+  type: UPDATE_COLUMN_FAILURE,
+  payload
+});
+
+export const updateColumn = (columnId, newName) => {
+  return (dispatch, getState) => {
+    dispatch(updateColumnBegin());
+    const { board } = getState();
+    return boardApi
+      .patchColumn(board.id, columnId, newName)
+      .then(data => dispatch(updateColumnSuccess(data)))
+      .catch(error => dispatch(updateColumnFailure(error)));
   };
 };

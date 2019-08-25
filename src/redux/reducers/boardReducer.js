@@ -1,7 +1,5 @@
 import {
-  ADD_COLUMN,
   ADD_CARD_TO_COLUMN,
-  RENAME_COLUMN,
   ADD_CARD,
   UPDATE_CARD,
   LOAD_BOARD_BEGIN,
@@ -9,7 +7,10 @@ import {
   LOAD_BOARD_FAILURE,
   ADD_COLUMN_BEGIN,
   ADD_COLUMN_SUCCESS,
-  ADD_COLUMN_FAILURE
+  ADD_COLUMN_FAILURE,
+  UPDATE_COLUMN_BEGIN,
+  UPDATE_COLUMN_SUCCESS,
+  UPDATE_COLUMN_FAILURE
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -51,12 +52,6 @@ export default function(state = initialState, action) {
         }
       };
 
-    case ADD_COLUMN:
-      return {
-        ...state,
-        columns: [...state.columns, { title: action.payload.title, cards: [] }]
-      };
-
     case ADD_CARD_TO_COLUMN:
       return {
         ...state,
@@ -65,20 +60,6 @@ export default function(state = initialState, action) {
             return {
               ...column,
               cards: [...column.cards, action.payload.cardId]
-            };
-          }
-          return column;
-        })
-      };
-
-    case RENAME_COLUMN:
-      return {
-        ...state,
-        columns: state.columns.map((column, index) => {
-          if (index === action.payload.columnIndex) {
-            return {
-              ...column,
-              title: action.payload.title
             };
           }
           return column;
@@ -125,6 +106,32 @@ export default function(state = initialState, action) {
       };
 
     case ADD_COLUMN_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      };
+
+    case UPDATE_COLUMN_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case UPDATE_COLUMN_SUCCESS:
+      return {
+        ...state,
+        columns: state.columns.map(column => {
+          if (column.id === action.payload.id) {
+            return action.payload;
+          }
+          return column;
+        }),
+        loading: false
+      };
+
+    case UPDATE_COLUMN_FAILURE:
       return {
         ...state,
         loading: false,

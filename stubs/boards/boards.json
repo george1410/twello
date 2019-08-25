@@ -14,10 +14,12 @@
           "id": 1,
           "columns": [
             {
+              "id": 1,
               "title": "George",
               "cards": [1, 2, 4, 6]
             },
             {
+              "id": 2,
               "title": "Henry",
               "cards": [3, 5]
             }
@@ -73,10 +75,12 @@
         "id": 1,
         "columns": [
           {
+            "id": 1,
             "title": "George",
             "cards": [1, 2, 4, 6]
           },
           {
+            "id": 2,
             "title": "Henry",
             "cards": [3, 5]
           }

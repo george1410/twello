@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {
   addCard,
   addCardToColumn,
-  renameColumn
+  updateColumn
 } from '../../redux/actions/boardActions';
 import Card from '../Card/Card';
 import styles from './Column.module.css';
@@ -29,10 +29,7 @@ class Column extends Component {
   };
 
   handleTitleSubmit = title => {
-    this.props.renameColumn({
-      columnIndex: this.props.columnIndex,
-      title
-    });
+    this.props.updateColumn(this.props.columnIndex + 1, title);
   };
 
   componentDidUpdate() {
@@ -83,7 +80,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   addCard,
   addCardToColumn,
-  renameColumn
+  updateColumn
 };
 
 export default connect(

@@ -25,7 +25,19 @@ const postColumn = (boardId, columnName) => {
     });
 };
 
+const patchColumn = (boardId, columnId, newName) => {
+  return axios
+    .patch(`${baseUrl}/${boardId}/columns/${columnId}`, { title: newName })
+    .then(res => {
+      return res.data;
+    })
+    .catch(error => {
+      handleError(error);
+    });
+};
+
 export default {
   getBoard,
-  postColumn
+  postColumn,
+  patchColumn
 };
