@@ -19,7 +19,7 @@ class AddColumn extends Component {
 
   handleSubmit = event => {
     if (this.state.title) {
-      this.props.addColumn({ title: this.state.title });
+      this.props.addColumn(this.props.boardId, this.state.title);
       this.setState(prevState => ({
         open: !prevState.open,
         title: ''
@@ -67,11 +67,17 @@ class AddColumn extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    boardId: state.board.id
+  };
+};
+
 const mapDispatchtoProps = {
   addColumn
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchtoProps
 )(AddColumn);

@@ -56,5 +56,39 @@
         "cards": [3, 5]
       }
     }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/columns$",
+      "method": "POST",
+      "body": {
+        "title": "^ERROR$"
+      }
+    },
+    "response": {
+      "status": 500,
+      "latency": 500
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/columns$",
+      "method": "POST",
+      "body": {
+        "title": "^(.*)$"
+      }
+    },
+    "response": {
+      "status": 201,
+      "latency": 500,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "id": 21,
+        "title": "This is the created column's title",
+        "cards": []
+      }
+    }
   }
 ]

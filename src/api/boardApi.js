@@ -1,4 +1,5 @@
 import axios from 'axios';
+import handleError from './common/handleError';
 
 const baseUrl = 'http://localhost:3001/boards';
 
@@ -9,18 +10,22 @@ const getBoard = id => {
       return res.data;
     })
     .catch(error => {
-      if (error.response) {
-        throw error.response;
-      }
+      handleError(error);
+    });
+};
 
-      if (error.request) {
-        throw error.request;
-      }
-
-      throw error;
+const postColumn = (boardId, columnName) => {
+  return axios
+    .post(`${baseUrl}/${boardId}/columns`, { title: columnName })
+    .then(res => {
+      return res.data;
+    })
+    .catch(error => {
+      handleError(error);
     });
 };
 
 export default {
-  getBoard
+  getBoard,
+  postColumn
 };

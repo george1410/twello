@@ -6,7 +6,10 @@ import {
   UPDATE_CARD,
   LOAD_BOARD_BEGIN,
   LOAD_BOARD_SUCCESS,
-  LOAD_BOARD_FAILURE
+  LOAD_BOARD_FAILURE,
+  ADD_COLUMN_BEGIN,
+  ADD_COLUMN_SUCCESS,
+  ADD_COLUMN_FAILURE
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -92,6 +95,7 @@ export default function(state = initialState, action) {
     case LOAD_BOARD_SUCCESS:
       return {
         ...state,
+        id: action.payload.id,
         columns: action.payload.columns,
         cards: action.payload.cards,
         loading: false
@@ -102,6 +106,27 @@ export default function(state = initialState, action) {
         ...state,
         columns: [],
         cards: [],
+        loading: false,
+        error: action.payload
+      };
+
+    case ADD_COLUMN_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case ADD_COLUMN_SUCCESS:
+      return {
+        ...state,
+        columns: [...state.columns, action.payload],
+        loading: false
+      };
+
+    case ADD_COLUMN_FAILURE:
+      return {
+        ...state,
         loading: false,
         error: action.payload
       };
