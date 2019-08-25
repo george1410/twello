@@ -4,15 +4,16 @@ import {
   RENAME_COLUMN,
   ADD_CARD,
   UPDATE_CARD,
-  LOAD_BOARD
+  LOAD_BOARD_BEGIN,
+  LOAD_BOARD_SUCCESS,
+  LOAD_BOARD_FAILURE
 } from '../actions/actionTypes';
 
 const initialState = {
-  cards: {
-    nextId: 10,
-    cards: []
-  },
-  columns: []
+  cards: [],
+  columns: [],
+  loading: true,
+  error: null
 };
 
 export default function(state = initialState, action) {
@@ -81,14 +82,28 @@ export default function(state = initialState, action) {
         })
       };
 
-    case LOAD_BOARD:
+    case LOAD_BOARD_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case LOAD_BOARD_SUCCESS:
       return {
         ...state,
         columns: action.payload.columns,
-        cards: {
-          ...state.cards,
-          cards: action.payload.cards
-        }
+        cards: action.payload.cards,
+        loading: false
+      };
+
+    case LOAD_BOARD_FAILURE:
+      return {
+        ...state,
+        columns: [],
+        cards: [],
+        loading: false,
+        error: action.payload
       };
 
     default:

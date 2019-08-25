@@ -7,15 +7,27 @@ import { loadBoard } from '../../redux/actions/boardActions';
 
 class Board extends Component {
   componentDidMount() {
-    fetch('http://localhost:3001/boards/1')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        this.props.loadBoard(data);
-      });
+    this.props.loadBoard(2);
   }
 
   render() {
+    if (this.props.loading) {
+      return <p>Loading Board...</p>;
+    }
+
+    if (this.props.error) {
+      return (
+        <>
+          <p>Oops! Something went wrong :(</p>
+          <button
+            style={{ width: 'fit-content' }}
+            onClick={() => this.props.loadBoard(1)}>
+            Try again!
+          </button>
+        </>
+      );
+    }
+
     return (
       <div className={`${styles.scroll} ${this.props.className}`}>
         <div className={styles.root}>
@@ -36,7 +48,9 @@ class Board extends Component {
 
 function mapStateToProps(state) {
   return {
-    columns: state.board.columns
+    columns: state.board.columns,
+    loading: state.board.loading,
+    error: state.board.error
   };
 }
 

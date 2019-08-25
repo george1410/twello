@@ -76,8 +76,7 @@ class Column extends Component {
 
 const mapStateToProps = state => {
   return {
-    nextCardId: state.board.cards.nextId,
-    cards: state.board.cards.cards
+    cards: state.board.cards
   };
 };
 
