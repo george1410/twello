@@ -7,7 +7,7 @@ import { loadBoard } from '../../redux/actions/boardActions';
 
 class Board extends Component {
   componentDidMount() {
-    this.props.loadBoard(2);
+    this.props.loadBoard(this.props.id);
   }
 
   render() {
@@ -21,7 +21,7 @@ class Board extends Component {
           <p>Oops! Something went wrong :(</p>
           <button
             style={{ width: 'fit-content' }}
-            onClick={() => this.props.loadBoard(1)}>
+            onClick={() => this.props.loadBoard(this.props.id)}>
             Try again!
           </button>
         </>

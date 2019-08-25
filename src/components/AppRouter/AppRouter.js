@@ -7,6 +7,7 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path='/board/:id' component={BoardPage} />
         <Route path='/card/:id' component={CardPage} />
         <Route path='/' component={BoardPage} />
       </Switch>
