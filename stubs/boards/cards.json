@@ -1,0 +1,206 @@
+[
+  {
+    "request": {
+      "url": "^/boards/1/cards$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": [
+        {
+          "id": 1,
+          "text": "This is a test card",
+          "description": "Here we have the description which shows in the card detail view."
+        },
+        {
+          "id": 2,
+          "text": "Here we have a card that is pretty long so it should go across multiple lines",
+          "description": "Blah blah blah..."
+        },
+        {
+          "id": 3,
+          "text": "This is another cool test card",
+          "description": "Lorem ipsum dolor sit amet..."
+        },
+        {
+          "id": 4,
+          "text": "What kind of stuff can you put in cards",
+          "description": "Who let the dogs out??"
+        },
+        {
+          "id": 5,
+          "text": "This should just be the tile really...",
+          "description": "Let's chuck in some emoji for fun 🎉"
+        },
+        {
+          "id": 6,
+          "text": "The description can be longer and goes in a different place",
+          "description": "Food!!! 🍟🍕"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/columns/1/cards$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": [
+        {
+          "id": 1,
+          "text": "This is a test card",
+          "description": "Here we have the description which shows in the card detail view."
+        },
+        {
+          "id": 2,
+          "text": "Here we have a card that is pretty long so it should go across multiple lines",
+          "description": "Blah blah blah..."
+        },
+        {
+          "id": 4,
+          "text": "What kind of stuff can you put in cards",
+          "description": "Who let the dogs out??"
+        },
+        {
+          "id": 6,
+          "text": "The description can be longer and goes in a different place",
+          "description": "Food!!! 🍟🍕"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/columns/2/cards$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": [
+        {
+          "id": 3,
+          "text": "This is another cool test card",
+          "description": "Lorem ipsum dolor sit amet..."
+        },
+        {
+          "id": 5,
+          "text": "This should just be the tile really...",
+          "description": "Let's chuck in some emoji for fun 🎉"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/cards/1$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "id": 1,
+        "text": "This is a test card",
+        "description": "Here we have the description which shows in the card detail view."
+      }
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/cards/2$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "id": 2,
+        "text": "Here we have a card that is pretty long so it should go across multiple lines",
+        "description": "Blah blah blah..."
+      }
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/cards/3$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "id": 3,
+        "text": "This is another cool test card",
+        "description": "Lorem ipsum dolor sit amet..."
+      }
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/cards/4$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "id": 4,
+        "text": "What kind of stuff can you put in cards",
+        "description": "Who let the dogs out??"
+      }
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/cards/5$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "id": 5,
+        "text": "This should just be the tile really...",
+        "description": "Let's chuck in some emoji for fun 🎉"
+      }
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/cards/6$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "id": 6,
+        "text": "The description can be longer and goes in a different place",
+        "description": "Food!!! 🍟🍕"
+      }
+    }
+  }
+]

@@ -20,7 +20,7 @@
     "test:unit": "react-scripts test",
     "test:functional": "node ./node_modules/selenium-cucumber-js/index.js",
     "eject": "react-scripts eject",
-    "stub": "npx json-server --watch ./stubs/db.json --port 3001"
+    "stub": "babel-node ./stubs/setStubs.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,7 +38,11 @@
     ]
   },
   "devDependencies": {
-    "json-server": "^0.15.0",
-    "selenium-cucumber-js": "github:george1410/selenium-cucumber-js"
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "selenium-cucumber-js": "github:george1410/selenium-cucumber-js",
+    "stubby": "^4.1.0"
   }
 }

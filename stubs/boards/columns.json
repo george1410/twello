@@ -1,0 +1,60 @@
+[
+  {
+    "request": {
+      "url": "^/boards/1/columns$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": [
+        {
+          "id": 1,
+          "title": "George",
+          "cards": [1, 2, 4, 6]
+        },
+        {
+          "id": 2,
+          "title": "Henry",
+          "cards": [3, 5]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/columns/1$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "id": 1,
+        "title": "George",
+        "cards": [1, 2, 4, 6]
+      }
+    }
+  },
+  {
+    "request": {
+      "url": "^/boards/1/columns/2$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "id": 2,
+        "title": "Henry",
+        "cards": [3, 5]
+      }
+    }
+  }
+]
