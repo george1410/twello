@@ -115,5 +115,14 @@
         ]
       }
     }
+  },
+  {
+    "request": {
+      "url": "^/boards/2$",
+      "method": "GET"
+    },
+    "response": {
+      "status": 403
+    }
   }
 ]

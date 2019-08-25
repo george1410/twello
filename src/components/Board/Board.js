@@ -15,10 +15,25 @@ class Board extends Component {
       return <p>Loading Board...</p>;
     }
 
-    if (this.props.error) {
+    const { error } = this.props;
+    if (error) {
+      let message;
+
+      switch (error.status) {
+        case 404:
+          message = 'Are you lost? This board does not exist! 😢';
+          break;
+        case 403:
+          message = 'No peeking! You are not allowed to view this board! ⛔';
+          break;
+        default:
+          message = 'Oops! Something went wrong 😢';
+          break;
+      }
+
       return (
         <>
-          <p>Oops! Something went wrong :(</p>
+          <p>{message}</p>
           <button
             style={{ width: 'fit-content' }}
             onClick={() => this.props.loadBoard(this.props.id)}>

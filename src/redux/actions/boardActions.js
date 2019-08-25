@@ -34,8 +34,8 @@ export const loadBoard = boardId => {
     dispatch(loadBoardBegin());
     return boardApi
       .getBoard(boardId)
-      .then(res => {
-        dispatch(loadBoardSuccess(res.data));
+      .then(data => {
+        dispatch(loadBoardSuccess(data));
       })
       .catch(error => {
         dispatch(loadBoardFailure(error));
